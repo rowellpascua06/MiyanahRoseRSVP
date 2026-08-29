@@ -12,7 +12,7 @@
     --light-cream: #fff7fa;
     --shadow: rgba(99, 55, 72, 0.16);
     --font-heading: 'Georgia', 'Times New Roman', serif;
-    --font-body: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    --font-body: 'Segoe UI', Tahoma, Arial, sans-serif;
     --transition: all 0.25s ease;
 }
 
@@ -94,7 +94,7 @@ select {
 
 .title-block h1 {
     margin: 0;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-heading);
     line-height: 0.8;
     color: var(--mauve);
     text-shadow: 0 1px 0 rgba(255,255,255,0.4);
@@ -108,7 +108,7 @@ select {
     letter-spacing: 0.02em;
     margin: 0;
     line-height: 0.9;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-heading);
     font-style: italic;
 }
 
@@ -123,6 +123,7 @@ select {
     text-transform: none;
     font-style: italic;
     line-height: 0.9;
+    font-family: var(--font-heading);
 }
 
 .honoring-line {
@@ -152,7 +153,7 @@ select {
 }
 
 .registry-header h2 {
-    font-family: 'One Little Font', cursive !important;
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     color: var(--mauve);
     font-weight: 700;
@@ -193,7 +194,7 @@ select {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.81rem;
-    font-family: 'corallo playscript', cursive !important;
+    font-family: var(--font-heading);
     font-size: 1.2rem;
 }
 
@@ -232,7 +233,7 @@ select {
     font-weight: 700;
     color: var(--mauve);
     margin-bottom: 8px;
-    font-family: 'Carollo Playscript', cursive !important;
+    font-family: var(--font-body);
     letter-spacing: 0.08em;
 }
 
@@ -322,7 +323,7 @@ select:focus {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 700;
-    font-family: 'Carollo Playscript', cursive !important;
+    font-family: var(--font-body);
     cursor: pointer;
     transition: var(--transition);
     box-shadow: 0 14px 28px rgba(185, 77, 114, 0.22);
@@ -348,7 +349,7 @@ select:focus {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-weight: 700;
-    font-family: 'Carollo Playscript', cursive !important;
+    font-family: var(--font-body);
 }
 
 .form-status {
