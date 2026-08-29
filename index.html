@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miyanah Baby Shower RSVP</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="rsvp-header">
+            <div class="palette-row" aria-label="Color palette">
+                <div class="palette-text">HOT PINK</div>
+                <div class="palette-swatch swatch-one" aria-hidden="true"></div>
+                <div class="palette-swatch swatch-two" aria-hidden="true"></div>
+                <div class="palette-swatch swatch-three" aria-hidden="true"></div>
+                <div class="palette-swatch swatch-four" aria-hidden="true"></div>
+                <div class="palette-code">#FF6B</div>
+            </div>
+        </header>
+
+        <main class="rsvp-container">
+            <section class="rsvp-card form-card">
+                <div class="title-block">
+                    <p class="eyebrow">Join us for a joyful celebration</p>
+                    <h1>Miyanah Rose Baby Shower</h1>
+                </div>
+
+                <div class="registry-box">
+                    <a class="registry-link" href="https://www.amazon.com/wedding/share/miyanahbabyshower" target="_blank" rel="noreferrer">
+                        View Gift Registry
+                    </a>
+                    <img
+                        class="qr-code"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwww.amazon.com%2Fwedding%2Fshare%2Fmiyanahbabyshower"
+                        alt="Gift registry QR code"
+                    >
+                </div>
+
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="guestName">Guest Name</label>
+                        <input type="text" id="guestName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="group-label">Will you attend?</span>
+                        <div class="attendance-options">
+                            <label class="option-card">
+                                <input type="radio" name="attendance" value="Yes" required>
+                                <span>Joyfully Accepts</span>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="attendance" value="No">
+                                <span>Regretfully Declines</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guestCount">Number of Guests</label>
+                        <select id="guestCount">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit RSVP</button>
+                    <p class="form-status" id="formStatus" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="rsvp-card success-card" id="successCard" hidden>
+                <div class="success-icon">✓</div>
+                <h2>Thank You!</h2>
+                <p>Your RSVP has been received. We can't wait to celebrate with you.</p>
+                <button type="button" class="close-btn" id="closeSuccess">Close</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
