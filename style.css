@@ -1,17 +1,18 @@
 :root {
-    --pink-1: #f9b9d2;
-    --pink-2: #f6a7c4;
-    --pink-3: #f3d8df;
-    --pink-4: #d96e9a;
-    --rose: #ef7ca2;
+    --pink-1: #f8d4df;
+    --pink-2: #f4b7cf;
+    --pink-3: #f0a9c5;
+    --pink-4: #ee8bb8;
+    --pink-5: #f7cadb;
+    --rose: #e98eb7;
     --mauve: #5a3d4b;
     --deep-rose: #b94d72;
     --white: #ffffff;
     --text: #2e1f2a;
     --light-cream: #fff7fa;
     --shadow: rgba(99, 55, 72, 0.16);
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Trebuchet MS', 'Segoe UI', sans-serif;
     --transition: all 0.25s ease;
 }
 
@@ -53,44 +54,6 @@ select {
     padding: 24px 18px 48px;
 }
 
-.rsvp-header {
-    background: transparent;
-    padding: 0 0 10px;
-}
-
-.palette-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 8px 0 18px;
-    flex-wrap: wrap;
-    color: var(--mauve);
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.palette-text,
-.palette-code {
-    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
-    font-weight: 700;
-}
-
-.palette-swatch {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.65);
-    box-shadow: 0 10px 25px rgba(83, 47, 59, 0.08);
-}
-
-.swatch-one { background: #f7d3df; }
-.swatch-two { background: #f0a3be; }
-.swatch-three { background: #e77aa1; }
-.swatch-four { background: #d75b86; }
-
 .rsvp-container {
     width: min(100%, 760px);
     margin: 0 auto;
@@ -112,48 +75,94 @@ select {
 .eyebrow {
     color: var(--deep-rose);
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     font-size: 0.72rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 .title-block h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 7vw, 4.8rem);
-    line-height: 0.92;
-    font-weight: 600;
+    font-family: 'One Little Font', cursive !important;
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+    line-height: 0.96;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     color: var(--mauve);
+    text-shadow: 0 2px 0 rgba(255,255,255,0.4);
 }
 
-.registry-box {
+.registry-card {
+    margin-top: 20px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.registry-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.registry-header h2 {
+    font-family: 'One Little Font', cursive !important;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--mauve);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.registry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.registry-item {
     background: #fff6f9;
     border: 1px solid rgba(220, 114, 159, 0.22);
     border-radius: 18px;
+    padding: 18px 16px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 18px 20px;
-    margin-bottom: 26px;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
 }
 
 .registry-link {
     color: var(--deep-rose);
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
+.money-label {
+    color: var(--mauve);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.81rem;
+    font-family: 'corallo playscript', cursive !important;
+    font-size: 1.2rem;
+}
+
 .qr-code {
-    width: 118px;
-    height: 118px;
+    width: 150px;
+    height: 150px;
     border-radius: 12px;
     background: white;
-    padding: 6px;
+    padding: 8px;
     box-shadow: 0 8px 20px rgba(72, 31, 46, 0.08);
+}
+
+.registry-note {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--mauve);
+    font-size: 0.92rem;
+    line-height: 1.7;
 }
 
 .form-card {
@@ -168,12 +177,14 @@ select {
 .form-group label,
 .group-label {
     display: block;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 700;
     color: var(--mauve);
     margin-bottom: 8px;
+    font-family: 'Carollo Playscript', cursive !important;
+    letter-spacing: 0.08em;
 }
 
 input,
@@ -208,8 +219,9 @@ select:focus {
 
 .option-card {
     position: relative;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 72px;
     border-radius: 12px;
     border: 1px solid rgba(160, 90, 120, 0.22);
@@ -227,11 +239,17 @@ select:focus {
 }
 
 .option-card span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
     color: var(--mauve);
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 700;
+    text-align: center;
 }
 
 .option-card:has(input:checked) {
@@ -242,16 +260,20 @@ select:focus {
 
 .submit-btn,
 .close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-height: 54px;
     border: none;
     border-radius: 999px;
     background: linear-gradient(135deg, var(--pink-2), var(--pink-4));
     color: var(--white);
-    font-size: 0.8rem;
-    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 700;
+    font-family: 'Carollo Playscript', cursive !important;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: 0 14px 28px rgba(185, 77, 114, 0.22);
@@ -267,6 +289,17 @@ select:focus {
     opacity: 0.65;
     cursor: wait;
     transform: none;
+}
+
+.form-note {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--mauve);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Carollo Playscript', cursive !important;
 }
 
 .form-status {
@@ -329,18 +362,8 @@ select:focus {
         padding-top: 10px;
     }
 
-    .palette-row {
-        gap: 8px;
-    }
-
-    .palette-swatch {
-        width: 42px;
-        height: 42px;
-    }
-
-    .registry-box {
-        flex-direction: column;
-        text-align: center;
+    .registry-grid {
+        grid-template-columns: 1fr;
     }
 
     .attendance-options {
