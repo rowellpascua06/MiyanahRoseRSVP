@@ -3,7 +3,8 @@ const googleForm = {
     entries: {
         guestName: "entry.1153771433",
         attendance: "entry.1133770559",
-        guestCount: "entry.1454670260"
+        guestCount: "entry.1454670260",
+        additionalGuests: "entry.887331011"
     }
 };
 
@@ -11,6 +12,9 @@ const rsvpForm = document.getElementById("rsvpForm");
 const successCard = document.getElementById("successCard");
 const formStatus = document.getElementById("formStatus");
 const closeSuccessButton = document.getElementById("closeSuccess");
+const guestCount = document.getElementById("guestCount");
+const additionalGuestsWrap = document.getElementById("additionalGuestsWrap");
+const additionalGuestsInput = document.getElementById("additionalGuests");
 
 function isGoogleFormConfigured() {
     return googleForm.actionUrl.includes("formResponse") &&
@@ -32,7 +36,8 @@ function getRsvpValues() {
     return {
         [googleForm.entries.guestName]: document.getElementById("guestName").value.trim(),
         [googleForm.entries.attendance]: getSelectedAttendance(),
-        [googleForm.entries.guestCount]: document.getElementById("guestCount").value
+        [googleForm.entries.guestCount]: document.getElementById("guestCount").value,
+        [googleForm.entries.additionalGuests]: additionalGuestsInput ? additionalGuestsInput.value.trim() : ""
     };
 }
 
@@ -44,11 +49,47 @@ function showSuccess() {
     successCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
+function updateAdditionalGuestsField() {
+    if (!guestCount || !additionalGuestsWrap || !additionalGuestsInput) return;
+
+    const selectedCount = Number(guestCount.value);
+    const shouldShow = selectedCount >= 2;
+
+    additionalGuestsWrap.hidden = !shouldShow;
+    additionalGuestsInput.required = shouldShow;
+    additionalGuestsInput.value = shouldShow ? additionalGuestsInput.value.trim() : "";
+
+    if (!shouldShow) {
+        additionalGuestsInput.removeAttribute("aria-invalid");
+    }
+}
+
+function resetFormState() {
+    if (!rsvpForm) return;
+
+    rsvpForm.reset();
+
+    if (guestCount) guestCount.value = "1";
+    updateAdditionalGuestsField();
+
+    const submitButton = rsvpForm.querySelector("button[type='submit']");
+    if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit RSVP";
+    }
+
+    setStatus("", "");
+}
+
 function closeSuccess() {
     if (!successCard) return;
     successCard.hidden = true;
+
     const formCard = document.querySelector(".form-card");
     if (formCard) formCard.hidden = false;
+
+    resetFormState();
+    formCard.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function submitToGoogleForm(values) {
@@ -94,8 +135,18 @@ function submitToGoogleForm(values) {
 }
 
 if (rsvpForm && successCard) {
+    guestCount.addEventListener("change", updateAdditionalGuestsField);
+    updateAdditionalGuestsField();
+
     rsvpForm.addEventListener("submit", async event => {
         event.preventDefault();
+
+        if (guestCount && Number(guestCount.value) >= 2 && !additionalGuestsInput.value.trim()) {
+            setStatus("Please enter the names of additional guests.", "error");
+            additionalGuestsInput.focus();
+            additionalGuestsInput.setAttribute("aria-invalid", "true");
+            return;
+        }
 
         if (!isGoogleFormConfigured()) {
             setStatus("Google Form endpoint is set. Add the entry IDs in main.js to finish connecting it.", "error");
