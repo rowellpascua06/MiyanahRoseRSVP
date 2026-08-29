@@ -10,33 +10,11 @@
 </head>
 <body>
     <div class="page-shell">
-        <header class="rsvp-header">
-            <div class="palette-row" aria-label="Color palette">
-                <div class="palette-text">HOT PINK</div>
-                <div class="palette-swatch swatch-one" aria-hidden="true"></div>
-                <div class="palette-swatch swatch-two" aria-hidden="true"></div>
-                <div class="palette-swatch swatch-three" aria-hidden="true"></div>
-                <div class="palette-swatch swatch-four" aria-hidden="true"></div>
-                <div class="palette-code">#FF6B</div>
-            </div>
-        </header>
-
         <main class="rsvp-container">
             <section class="rsvp-card form-card">
                 <div class="title-block">
                     <p class="eyebrow">Join us for a joyful celebration</p>
                     <h1>Miyanah Rose Baby Shower</h1>
-                </div>
-
-                <div class="registry-box">
-                    <a class="registry-link" href="https://www.amazon.com/wedding/share/miyanahbabyshower" target="_blank" rel="noreferrer">
-                        View Gift Registry
-                    </a>
-                    <img
-                        class="qr-code"
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwww.amazon.com%2Fwedding%2Fshare%2Fmiyanahbabyshower"
-                        alt="Gift registry QR code"
-                    >
                 </div>
 
                 <form id="rsvpForm">
@@ -62,16 +40,54 @@
                     <div class="form-group">
                         <label for="guestCount">Number of Guests</label>
                         <select id="guestCount">
-                            <option value="1">1 Guest</option>
+                            <option value="1" selected>1 Guest</option>
                             <option value="2">2 Guests</option>
                             <option value="3">3 Guests</option>
                             <option value="4">4 Guests</option>
                         </select>
                     </div>
 
+                    <div class="form-group additional-guests-wrap" id="additionalGuestsWrap" hidden>
+                        <label for="additionalGuests">Names of Additional Guests</label>
+                        <input type="text" id="additionalGuests" placeholder="Enter names of additional guests" required>
+                    </div>
+
                     <button type="submit" class="submit-btn">Submit RSVP</button>
+                    <p class="form-note">Submit RSVP until September 06, 2026</p>
                     <p class="form-status" id="formStatus" aria-live="polite"></p>
                 </form>
+            </section>
+
+            <section class="rsvp-card registry-card">
+                <div class="registry-header">
+                    <h2>Gift Registry</h2>
+                </div>
+
+                <div class="registry-grid">
+                    <div class="registry-item">
+                        <a class="registry-link" href="https://www.myregistry.com/giftlist/miyanahrosewishlist" target="_blank" rel="noreferrer">
+                            View Gift Registry
+                        </a>
+                        <img
+                            class="qr-code"
+                            src="assets/gift-registry-qr.png"
+                            alt="Gift registry QR code"
+                        >
+                    </div>
+
+                    <div class="registry-item">
+                        <p class="money-label">Monetary Gift</p>
+                        <img
+                            class="qr-code"
+                            src="assets/gcash-qr.png"
+                            alt="GCash QR code for monetary gifts"
+                        >
+                    </div>
+                </div>
+
+                <p class="registry-note">
+                    Please update the gift registry if a gift has already been purchased. Thank you for your generosity and love.
+                </p>
             </section>
 
             <section class="rsvp-card success-card" id="successCard" hidden>
